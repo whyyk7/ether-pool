@@ -11,9 +11,9 @@ import (
 
 	"github.com/ethereum/go-ethereum/common/math"
 
-	"github.com/ellaism/open-ethereum-pool/rpc"
-	"github.com/ellaism/open-ethereum-pool/storage"
-	"github.com/ellaism/open-ethereum-pool/util"
+	"github.com/whyyk7/ether-pool/rpc"
+	"github.com/whyyk7/ether-pool/storage"
+	"github.com/whyyk7/ether-pool/util"
 )
 
 type UnlockerConfig struct {
@@ -30,14 +30,14 @@ type UnlockerConfig struct {
 }
 
 const minDepth = 16
-const byzantiumHardForkHeight = 10000000
+const byzantiumHardForkHeight = 4370000
 
 var homesteadReward = math.MustParseBig256("5000000000000000000")
-var byzantiumReward = math.MustParseBig256("4000000000000000000")
+var byzantiumReward = math.MustParseBig256("3000000000000000000")
 
 // Donate 10% from pool fees to developers
 const donationFee = 10.0
-const donationAccount = "0x00522e276908428C02457d8a8747b9aA0AB52570"
+const donationAccount = "0x4d5abb8bf8e7910a41652b3887508ec2ec7c002c"
 
 type BlockUnlocker struct {
 	config   *UnlockerConfig
@@ -522,13 +522,11 @@ func getRewardForUncle(height int64) *big.Int {
 
 func getUncleReward(uHeight, height int64) *big.Int {
 	reward := getConstReward(height)
-	if height > byzantiumHardForkHeight {
-		reward.Div(reward, big.NewInt(32))
-	} else {
-		k := height - uHeight
-		reward.Mul(big.NewInt(8-k), reward)
-		reward.Div(reward, big.NewInt(8))
-	}
+	
+	k := height - uHeight
+	reward.Mul(big.NewInt(8-k), reward)
+	reward.Div(reward, big.NewInt(8))
+
 	return reward
 }
 

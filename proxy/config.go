@@ -1,10 +1,10 @@
 package proxy
 
 import (
-	"github.com/ellaism/open-ethereum-pool/api"
-	"github.com/ellaism/open-ethereum-pool/payouts"
-	"github.com/ellaism/open-ethereum-pool/policy"
-	"github.com/ellaism/open-ethereum-pool/storage"
+	"github.com/whyyk7/ether-pool/api"
+	"github.com/whyyk7/ether-pool/payouts"
+	"github.com/whyyk7/ether-pool/policy"
+	"github.com/whyyk7/ether-pool/storage"
 )
 
 type Config struct {

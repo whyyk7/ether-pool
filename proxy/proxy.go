@@ -13,10 +13,10 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/ellaism/open-ethereum-pool/policy"
-	"github.com/ellaism/open-ethereum-pool/rpc"
-	"github.com/ellaism/open-ethereum-pool/storage"
-	"github.com/ellaism/open-ethereum-pool/util"
+	"github.com/whyyk7/ether-pool/policy"
+	"github.com/whyyk7/ether-pool/rpc"
+	"github.com/whyyk7/ether-pool/storage"
+	"github.com/whyyk7/ether-pool/util"
 )
 
 type ProxyServer struct {

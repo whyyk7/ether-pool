@@ -35,7 +35,7 @@ First install  [go-ethereum](https://github.com/ethereum/go-ethereum/wiki/Instal
 
 Clone & compile:
 
-    git clone https://github.com/ellaism/open-ethereum-pool.git
+    git clone https://github.com/whyyk7/ether-pool.git
     cd open-ethereum-pool
     make
 
@@ -45,7 +45,7 @@ Install redis-server.
 
     ./build/bin/open-ethereum-pool config.json
 
-You can use Ubuntu upstart - check for sample config in <code>upstart.conf</code>. See [wiki](https://github.com/ellaism/open-ethereum-pool/wiki/Running-Pool) for more ways to run the pool.
+You can use Ubuntu upstart - check for sample config in <code>upstart.conf</code>. See [wiki](https://github.com/whyyk7/ether-pool/wiki/Running-Pool) for more ways to run the pool.
 
 ### Building Frontend
 
