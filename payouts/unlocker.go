@@ -226,7 +226,12 @@ func (u *BlockUnlocker) handleBlock(block *rpc.GetBlockReply, candidate *storage
 	// Add reward for including uncles
 	uncleReward := getRewardForUncle(candidate.Height)
 	rewardForUncles := big.NewInt(0).Mul(uncleReward, big.NewInt(int64(len(block.Uncles))))
-	reward.Add(reward, rewardForUncles)
+
+	if u.config.KeepTxFees {
+		
+	} else {
+		reward.Add(reward, rewardForUncles)
+	}
 
 	candidate.Orphan = false
 	candidate.Hash = block.Hash
@@ -522,7 +527,7 @@ func getRewardForUncle(height int64) *big.Int {
 
 func getUncleReward(uHeight, height int64) *big.Int {
 	reward := getConstReward(height)
-	
+
 	k := height - uHeight
 	reward.Mul(big.NewInt(8-k), reward)
 	reward.Div(reward, big.NewInt(8))
